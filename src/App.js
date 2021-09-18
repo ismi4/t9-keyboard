@@ -1,24 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import DeleteButton from "./DeleteButton";
+import Keypad from "./Keypad";
+import Screen from "./Screen";
+
+import { createTheme } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material";
+
+import { useState } from "react";
+
+const theme = createTheme({
+  palette: {
+    button: {
+      main: "#3e2723",
+      contrastText: "#fff",
+    },
+    buttonDelete: {
+      main: "#212121",
+      contrastText: "#fff",
+    },
+  },
+});
 
 function App() {
+  const [screenOutput, setScreenOutput] = useState("");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div
+        style={{
+          textAlign: "center",
+          margin: "auto",
+          marginTop: "10%",
+          width: "40%",
+        }}
+      >
+        <Screen screenOutput={screenOutput} />
+        <Keypad screenOutput={screenOutput} setScreenOutput={setScreenOutput} />
+        <DeleteButton setScreenOutput={setScreenOutput} />
+      </div>
+    </ThemeProvider>
   );
 }
 
