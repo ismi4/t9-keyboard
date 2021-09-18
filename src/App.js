@@ -1,6 +1,6 @@
-import DeleteButton from "./DeleteButton";
-import Keypad from "./Keypad";
-import Screen from "./Screen";
+import DeleteButton from "./components/DeleteButton";
+import Keypad from "./components/Keypad";
+import Screen from "./components/Screen";
 
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@mui/material";
